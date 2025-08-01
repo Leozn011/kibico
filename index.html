@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda - Kit Bico Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+            min-height: 100vh;
+            color: #e8e8e8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }        .header h1 {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 40px;
+        }        .search-input {
+            width: 100%;
+            padding: 18px 25px 18px 55px;
+            border: 2px solid #3498db;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            background: rgba(42, 42, 66, 0.8);
+            color: #e8e8e8;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #5dade2;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: #95a5a6;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3498db;
+            font-size: 1.2rem;
+        }        .section {
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+        }
+
+        .section-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 12px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            vertical-align: top;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #bdc3c7;
+            margin-bottom: 15px;
+        }
+
+        .step-list {
+            list-style: none;
+            padding-left: 0;
+        }        .step-list li {
+            background: rgba(42, 42, 66, 0.6);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e8e8e8;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-list li:hover {
+            background: rgba(52, 152, 219, 0.2);
+            transform: translateX(10px);
+        }        .step-list li::before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3498db;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .step-list li::before {
+            content: "";
+            background: #3498db url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center;
+            background-size: 12px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+        .warning {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid #e74c3c;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }        .warning-icon {
+            color: #e74c3c;
+            font-size: 1.3rem;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .warning-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .step-list li {
+                padding: 15px;
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bem-vindo, <span id="username">Usuário</span>!</h1>
+            <p>Explore as opções abaixo para obter mais detalhes sobre os comandos e funcionalidades do bot.</p>
+        </div>        <div class="search-box">
+            <span class="search-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </span>
+            <input type="text" class="search-input" placeholder="Pesquisar..." id="searchInput">
+        </div>
+
+        <div class="section" id="planos">
+            <h2><span class="section-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                </svg>
+            </span>Como Comprar um Plano</h2>
+            <p>Siga os passos abaixo para adquirir seu plano e ter acesso aos kit bicos:</p>
+            <ol class="step-list">
+                <li><strong>Acesse o Menu:</strong> No menu principal do bot, clique no botão "Planos"</li>
+                <li><strong>Escolha seu Plano:</strong> Visualize os planos disponíveis com preços e durações</li>
+                <li><strong>Confirme a Compra:</strong> Clique no plano desejado e confirme os detalhes</li>
+                <li><strong>Realize o Pagamento:</strong> Use o PIX gerado para efetuar o pagamento</li>
+                <li><strong>Aguarde a Confirmação:</strong> Seu plano será ativado automaticamente após o pagamento</li>
+            </ol>            <div class="warning">
+                <span class="warning-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.58L19 8l-9 9z"/>
+                    </svg>
+                </span>
+                <strong>Importante:</strong> O pagamento via PIX é processado automaticamente. Mantenha o comprovante para eventuais consultas.
+            </div>
+        </div>
+
+        <div class="section" id="kitbico">
+            <h2><span class="section-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.58L19 8l-9 9z"/>
+                </svg>
+            </span>Como Gerar Kit Bicos</h2>
+            <p>Após adquirir um plano ativo, você pode gerar quantos kit bicos desejar:</p>
+            <ol class="step-list">
+                <li><strong>Comando Direto:</strong> Digite /kitbico no chat ou use o menu</li>
+                <li><strong>Escolha a Base:</strong> Selecione entre "Meta" ou "Segurando Documento"</li>
+                <li><strong>Aguarde o Processamento:</strong> O bot irá buscar e processar os documentos</li>
+                <li><strong>Receba os Arquivos:</strong> Os kit bicos serão enviados diretamente no chat</li>
+            </ol>            <div class="button-group">
+                <a href="#" class="btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.58L19 8l-9 9z"/>
+                    </svg>
+                    Gerar Kit Bico
+                </a>
+                <a href="#" class="btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                        <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                    </svg>
+                    Ver Planos
+                </a>
+            </div>
+        </div>        </div>
+    </div>
+
+    <script>
+        // Simulação de busca
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const content = section.textContent.toLowerCase();
+                if (content.includes(searchTerm) || searchTerm === '') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        // Simular nome do usuário (seria substituído dinamicamente)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aqui você colocaria a lógica para puxar o nome do usuário do Telegram
+            // Por exemplo: document.getElementById('username').textContent = nomeDoUsuario;
+        });
+    </script>
+</body>
+</html>
